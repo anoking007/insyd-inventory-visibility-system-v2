@@ -1,0 +1,20 @@
+// This file focuses on the data structure for AEC material businesses [cite: 3, 11]
+generator client {
+  provider = "prisma-client" // Modern Prisma 7 provider
+  output   = "../../backend/generated/client" // Explicit path to your backend
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model InventoryItem {
+  id            Int      @id @default(autoincrement())
+  name          String
+  sku           String   @unique
+  quantity      Int      @default(0)
+  minThreshold  Int      @default(10) // Vital for Low Stock Visibility [cite: 11]
+  unitPrice     Float    @default(0.0) // Helps calculate net margins 
+  lastUpdated   DateTime @updatedAt
+  createdAt     DateTime @default(now())
+}

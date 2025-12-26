@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
-dotenv.config();
+
 
 // Note: run `npm install` in any folder that contains a package.json.
 // - If your project has a package.json at the repository root: run `npm install` in the root.
